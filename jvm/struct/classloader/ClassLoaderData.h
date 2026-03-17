@@ -5,7 +5,7 @@
 #ifndef CUSTOM_JNA_CLASSLOADERDATA_H
 #define CUSTOM_JNA_CLASSLOADERDATA_H
 #include "../../struct/klass/InstanceKlass.h"
-#include "../../offset/offsetExtractor.h"
+#include "../../offset/OffsetExtractor.h"
 
 
 class ClassLoaderData

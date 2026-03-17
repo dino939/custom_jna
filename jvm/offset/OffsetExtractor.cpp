@@ -3,9 +3,9 @@
 //
 
 #include "offsetExtractor.h"
-offsetExtractor* offsetExtractor::instance = nullptr;
+OffsetExtractor* OffsetExtractor::instance = nullptr;
 
-offsetExtractor::offsetExtractor()
+OffsetExtractor::OffsetExtractor()
 {
     jvmModule = GetModuleHandleA("jvm.dll");
     assert(jvmModule, "can't find jvm module");
@@ -23,7 +23,7 @@ offsetExtractor::offsetExtractor()
     }
 }
 
-VMStructEntry* offsetExtractor::findVMStructEntry(const char* typeName, const char* fieldName)
+VMStructEntry* OffsetExtractor::findVMStructEntry(const char* typeName, const char* fieldName)
 {
     for (auto& entry : VMStructs) {
         std::cout << entry.typeName << " " << entry.fieldName  << std::endl;
@@ -35,16 +35,16 @@ VMStructEntry* offsetExtractor::findVMStructEntry(const char* typeName, const ch
     return nullptr;
 }
 
-std::vector<VMStructEntry> offsetExtractor::getVMStructs()
+std::vector<VMStructEntry> OffsetExtractor::getVMStructs()
 {
     return VMStructs;
 }
 
-offsetExtractor* offsetExtractor::getInstance()
+OffsetExtractor* OffsetExtractor::getInstance()
 {
     if (!instance)
     {
-        instance = new offsetExtractor();
+        instance = new OffsetExtractor();
     }
     return instance;
 }

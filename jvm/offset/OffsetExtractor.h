@@ -10,19 +10,19 @@
 #include "../utils/assert/assert.hpp"
 #include <windows.h>
 
-class offsetExtractor
+class OffsetExtractor
 {
     private:
-    static offsetExtractor* instance;
+    static OffsetExtractor* instance;
     std::vector<VMStructEntry> VMStructs;
     HMODULE jvmModule;
     FARPROC gHotSpotVMStructs;
 
 public:
-    offsetExtractor();
+    OffsetExtractor();
     VMStructEntry* findVMStructEntry(const char* typeName, const char* fieldName);
     std::vector<VMStructEntry> getVMStructs();
-    static offsetExtractor* getInstance();
+    static OffsetExtractor* getInstance();
 };
 
 

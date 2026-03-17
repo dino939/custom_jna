@@ -15,7 +15,7 @@ JNABootStrap::~JNABootStrap() {
     delete env;
 }
 
-environment JNABootStrap::_env() const
+environment JNABootStrap::getEnv() const
 {
     return env;
 }

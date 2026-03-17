@@ -4,19 +4,19 @@
 
 #include "InstanceKlass.h"
 #include "../../struct/symbol/Symbol.h"
-#include "../../offset/offsetExtractor.h"
+#include "../../offset/OffsetExtractor.h"
 
 
 
-Symbol* InstanceKlass::_name() const
+Symbol* InstanceKlass::name() const
 {
-    static offset nameKlassOffset = offsetExtractor::getInstance()->findVMStructEntry("Klass", "_name")->offset;
+    static offset nameKlassOffset = OffsetExtractor::getInstance()->findVMStructEntry("Klass", "_name")->offset;
     return *reinterpret_cast<Symbol**>(reinterpret_cast<uintptr_t>(this) + nameKlassOffset);
 }
 
-InstanceKlass* InstanceKlass::_next()
+InstanceKlass* InstanceKlass::next()
 {
-    static offset next_offset = offsetExtractor::getInstance()->findVMStructEntry("Klass","_next_link")->offset;
+    static offset next_offset = OffsetExtractor::getInstance()->findVMStructEntry("Klass","_next_link")->offset;
     return *reinterpret_cast<InstanceKlass**>(reinterpret_cast<uintptr_t>(this) + next_offset);
 }
 

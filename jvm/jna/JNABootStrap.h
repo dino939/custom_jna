@@ -14,7 +14,7 @@ class JNABootStrap
         JNABootStrap();
     ~JNABootStrap();
 
-    [[nodiscard]] environment _env() const;
+    [[nodiscard]] environment getEnv() const;
 
     static void destroy()
     {

@@ -10,10 +10,9 @@
 class InstanceKlass
 {
 public:
-    [[nodiscard]] Symbol* _name() const;
-    [[nodiscard]] InstanceKlass* _next();
+    [[nodiscard]] Symbol* name() const;
+    [[nodiscard]] InstanceKlass* next();
 };
-
 
 
 #endif //CUSTOM_JNA_INSTANCEKLASS_H

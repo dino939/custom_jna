@@ -1,17 +1,14 @@
 #include <windows.h>
 #include <iostream>
 #include <fstream>
-#include "jvm/offset/offsetExtractor.h"
+#include "jvm/offset/OffsetExtractor.h"
 #include "jvm/struct/klass/InstanceKlass.h"
 #include "jvm/jna/JNABootStrap.h"
 
 void entryPoint()
 {
-environment env = JNABootStrap::getInstance()->_env();
-    for (VMStructEntry entry : offsetExtractor::getInstance()->getVMStructs())
-    {
-        std::cout << entry.typeName << " " << entry.fieldName << " " << entry.typeString << std::endl;
-    }
+    environment env = JNABootStrap::getInstance()-> getEnv();
+
 }
 
 DWORD WINAPI ConsoleThread(LPVOID)
